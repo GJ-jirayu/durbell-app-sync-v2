@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Add Item</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/blog.css">
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/doc.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="../bootstrap-3.1.1/js/jquery-2.1.1.min.js"></script>
+<script src="../bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="../jquery-ui-multiselect/jquery.multiselect.css" />
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../jquery-ui-multiselect/src/jquery.multiselect.js"></script>
+
+
+<script>
+$(document).ready(function(){
+	$(".mutiSelect").multiselect();
+	$(".date").datepicker();
+});
+</script>
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <ul class="nav navbar-nav bg-primary">
+	        <li ><a href="1-1-prod-group-for-prom.html">Product Group for Promotion</a></li>
+	        <li class="dropdown">
+	          <a href="1-1-prod-group-for-prom.html"class="dropdown-toggle" data-toggle="dropdown">Discount Promotion <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="2-1-setup-discount-prom-by-item.html">Discount Promotion by Item</a></li>
+	            <li><a href="3-1-setup-discount-prom-by-group.html">Discount Promotion by Group</a></li>
+	            <li><a href="3-1-bundle-setup-discount-prom-by-group.html">Discount Promotion by Bundle</a></li>
+	          </ul>
+	        </li>
+	         <li class="dropdown active">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Free Item Promotion <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="4-1-setup-free-item-prom-by-item.html">Free Item Promotion by Item</a></li>
+	            <li><a href="5-1-setup-free-item-prom-by-group.html">Free Item Promotion by Group</a></li>
+	            <li><a href="5-1-bundle-setup-free-item-prom-by-group.html">Free Item Promotion by Bundle</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+<h3>Add Item to Promotion(FI0908)</h3>
+	<div class="row">
+		<div class="col-md-8">
+			<table class="table table-bordered">
+				<tr>
+					<td>Promotion No</td>
+					<td>
+						<b>FI0908</b>
+					</td>
+				</tr>
+				<tr>
+					<td> Brand</td>
+					<td>
+						
+						<select class="mutiSelect">
+							<option>All Brand</option>
+							<option>Brand01</option>
+							<option>Brand02</option>
+							<option>Brand03</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Item Code</td>
+					<td>
+						
+						<input type="text" />/*Auto Complete*/
+					</td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td>
+					<input type="text" readonly="readonly" style="background:#dddddd"/>
+					</td>
+						
+				</tr>
+				
+				<tr>
+					<td>Beak By</td>
+					<td>
+						<select>
+							<option>A</option>
+							<option>Q</option>
+							<option>LA</option>
+							<option>LQ</option>
+						</select>
+					
+					(Q-Quanlity A-Amonut LQ-Loop Quanlity LA-Loop Amonut)
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Limit Free Qty
+					</td>
+					<td>
+						<input type="text" />
+					</td>
+				</tr>
+				
+				
+			</table>
+			<table>
+				<tr>
+					<td>
+					<a href="2-1-setup-discount-prom-by-item.html">
+					<button type="button" class="btn btn-primary btn-xs">Back </button>
+					</a>
+					&nbsp;
+					<button type="button" class="btn btn-primary btn-xs">OK </button>
+					&nbsp;
+					<button type="button" class="btn btn-primary btn-xs">Cancel </button>
+				</td>
+				</tr>
+			</table>
+		</div>
+		
+	</div>
+	<hr>
+	<h3>List of Promotion Item</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr >
+						<th>
+						Item code
+						</th>
+						<th>
+						Description
+						</th>
+						<th>
+						Break By
+						</th>
+						
+						
+						<th>
+						Limit Free Qty
+						</th>
+						
+						<th>
+						Manage
+						</th>
+					</tr>
+					<tr>
+						<td>
+						11130801 
+						</td>
+						<td>
+						 ดารามูโจ้ 18 g ฮ็อดชิลลี
+						</td>
+						<td>
+						Q
+						</td>
+						
+						<td>
+						1
+						</td>
+						
+						
+						
+						
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-viewStep-modal-lg">View Step </button>
+						<a href="4-3-setup-free-item-prom-by-item-prom-step.html">
+						<button type="button" class="btn btn-primary btn-xs">Promotion Step </button>
+						</a>
+						
+						</td>
+					</tr>
+					<tr>
+						<td>
+						11130802 
+						</td>
+						<td>
+						 ดารามูโจ้ 70 g ฮ็อดชิลลี
+						</td>
+						<td>
+						Q
+						</td>
+						
+						<td>
+						1
+						</td>
+						
+						
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-viewStep-modal-lg">View Step </button>
+						<a href="4-3-setup-free-item-prom-by-item-prom-step.html">
+						<button type="button" class="btn btn-primary btn-xs">Promotion Step </button>
+						</a>
+						
+						</td>
+					</tr>
+					<tr>
+						<td>
+						11130803 
+						</td>
+						<td>
+						15 g สไปชิโนชิ
+						</td>
+						<td>
+						Q
+						</td>
+						
+						<td>
+						1
+						</td>
+						
+						
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-viewStep-modal-lg">View Step </button>
+						<a href="4-3-setup-free-item-prom-by-item-prom-step.html">
+						<button type="button" class="btn btn-primary btn-xs">Promotion Step </button>
+						</a>
+						
+						</td>
+					</tr>
+					<tr>
+						<td>
+						11130804 
+						</td>
+						<td>
+						 ดารามูโจ้ 15 g สไปขิโนริ
+						</td>
+						<td>
+						Q
+						</td>
+						
+						<td>
+						1
+						</td>
+					
+						
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-viewStep-modal-lg">View Step </button>
+						<a href="4-3-setup-free-item-prom-by-item-prom-step.html">
+						<button type="button" class="btn btn-primary btn-xs">Promotion Step </button>
+						</a>
+						
+						</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+ 
+</div>
+
+
+  <!-- Start  View Step Large modal -->
+
+
+<div class="modal fade bs-viewStep-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="myLargeModalLabel">View Step (FI0908 Puriku350 ml)</h4>
+        </div>
+        <div class="bs-callout bs-callout-info">
+				    <h4>Break By</h4>
+				    <div class="row">
+				    	<div class="col-md-12">
+						    <table class="table">
+								<thead>
+									<tr>
+										<th>Prom Code</th>
+										<th>Description</th>
+										<th>Step</th>
+										<th>Break Qty</th>
+										<th>Unit</th>
+										<th>Break Amt</th>
+									
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+										11130801
+										</td>
+										<td>
+										ค่ารามูโจ้18gฮ็อดชิลลี
+										</td>
+										<td>
+										1
+										</td>
+										<td>
+										1
+										</td>
+										
+										<td>
+										Pack
+										</td>
+										
+										<td>
+										
+										</td>
+										
+									
+										
+									</tr>
+									
+									
+									
+								</tbody>
+							</table>
+				    	</div>
+				    </div>
+				    
+			</div>
+			
+        <div class="modal-body">
+
+	        <div class="row">
+			<div class="col-md-12">
+					<table class="table">
+			          	<thead>
+				          	<tr>
+				          		
+				          		
+				          		<th>Free Item Code</th>
+				          		<th>Description</th>
+				          		<th>Free Qty</th>
+				          		<th>Unit</th>
+				          		<th>Gl Account</th>
+				          		
+				          		
+				          	</tr>
+			          	</thead>
+			          	<tbody>
+			          		<tr>
+			          			
+			          			<td>01010006</td>
+			          			<td>กระทิงแดง150มล.</td>
+			          			<td>1</td>
+			          			<td>Piece</td>
+			          			<td></td>
+			          			
+			          		</tr>
+			          		<tr>
+			          		
+			          			<td>01010007</td>
+			          			<td>กระทิงแดง150มล.(พ)</td>
+			          			<td>1</td>
+			          			<td>Piece</td>
+			          			<td></td>
+			          			
+			          		</tr>
+			          		<tr>
+			          			
+			          			<td>01010008</td>
+			          			<td>เรดดิ้โกจิ</td>
+			          			<td>1</td>
+			          			<td>Piece</td>
+			          			<td></td>
+			          			
+			          		</tr>
+			          	</tbod>
+			          </table>
+			</div>
+			
+			
+			
+		</div>
+       
+    </div>
+    <div class="bs-callout bs-callout-info">
+				    <h4>Break By</h4>
+				    <div class="row">
+				    	<div class="col-md-12">
+						    <table class="table">
+								<thead>
+									<tr>
+										<th>Prom Code</th>
+										<th>Description</th>
+										<th>Step</th>
+										<th>Break Qty</th>
+										<th>Unit</th>
+										<th>Break Amt</th>
+										
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+										11130801
+										</td>
+										<td>
+										ค่ารามูโจ้18gฮ็อดชิลลี
+										</td>
+										<td>
+										1
+										</td>
+										<td>
+										1
+										</td>
+										
+										<td>
+										Pack
+										</td>
+										
+										<td>
+										
+										</td>
+										
+									
+										
+									</tr>
+									
+									
+									
+								</tbody>
+							</table>
+				    	</div>
+				    </div>
+				    
+			</div>
+			
+        <div class="modal-body">
+
+	        <div class="row">
+			<div class="col-md-12">
+					<table class="table">
+			          	<thead>
+				          	<tr>
+				          		
+				          		
+				          		<th>Free Item Code</th>
+				          		<th>Description</th>
+				          		<th>Free Qty</th>
+				          		<th>Unit</th>
+				          		<th>Gl Account</th>
+				          		
+				          		
+				          	</tr>
+			          	</thead>
+			          	<tbody>
+			          		<tr>
+			          			
+			          			<td>01010006</td>
+			          			<td>กระทิงแดง150มล.</td>
+			          			<td>1</td>
+			          			<td>Piece</td>
+			          			<td></td>
+			          			
+			          		</tr>
+			          		<tr>
+			          		
+			          			<td>01010007</td>
+			          			<td>กระทิงแดง150มล.(พ)</td>
+			          			<td>2</td>
+			          			<td>Piece</td>
+			          			<td></td>
+			          			
+			          		</tr>
+			          		<tr>
+			          			
+			          			<td>01010008</td>
+			          			<td>เรดดิ้โกจิ</td>
+			          			<td>1</td>
+			          			<td>Piece</td>
+			          			<td></td>
+			          			
+			          		</tr>
+			          	</tbody>
+			          </table>
+			</div>
+			
+			
+			
+		</div>
+            
+		
+         
+        
+          
+        </div>
+  </div>
+</div>
+</div>
+<!-- End View Step Large modal -->   
+
+
+ 
+
+    <div class="blog-footer">
+      <p>Smart Van BackOffice</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+
+
+
+   
+  </body>
+</html>

@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Add Item For PromGroup</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/blog.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="../bootstrap-3.1.1/js/jquery-2.1.1.min.js"></script>
+<script src="../bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="../jquery-ui-multiselect/jquery.multiselect.css" />
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../jquery-ui-multiselect/src/jquery.multiselect.js"></script>
+
+<script>
+$(document).ready(function(){
+	$(".multiSelect").multiselect({
+	
+	});
+	$(".date").datepicker();
+});
+</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <ul class="nav navbar-nav bg-primary">
+	        <li class="active"><a href="1-1-prod-group-for-prom.html">Product Group for Promotion</a></li>
+	        <li class="dropdown">
+	          <a href="1-1-prod-group-for-prom.html" class="dropdown-toggle" data-toggle="dropdown">Discount Promotion <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="2-1-setup-discount-prom-by-item.html">Discount Promotion by Item</a></li>
+	            <li><a href="3-1-setup-discount-prom-by-group.html">Discount Promotion by Group</a></li>
+	            <li><a href="3-1-bundle-setup-discount-prom-by-group.html">Discount Promotion by Bundle</a></li>
+	          </ul>
+	        </li>
+	         <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Free Item Promotion <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="4-1-setup-free-item-prom-by-item.html">Free Item Promotion by Item</a></li>
+	            <li><a href="5-1-setup-free-item-prom-by-group.html">Free Item Promotion by Group</a></li>
+	            <li><a href="5-1-bundle-setup-free-item-prom-by-group.html">Free Item Promotion by Bundle</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+<h2>Add Item of Group(ED520301,EDLP 52/03#1)</h2>
+	<div class="row">
+		<div class="col-md-8">
+			<table class="table table-bordered">
+				<tr>
+					<td>Brand</td>
+					<td>
+						<select class="multiSelect" style="width:150px">
+							<option>All Band</option>
+							<option>Band01</option>
+							<option>Band02</option>
+							<option>Band03</option>
+						</select>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>Item Code</td>
+					<td>
+						<select>
+							<option>10101001</option>
+							<option>10101002</option>
+							<option>10101003</option>
+						</select>
+						<input type="text" />
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Minimum Order
+					</td>
+					<td>
+						<input type="text" name="minumum"/>
+						Unit
+						<select>
+							<option>Piece</option>
+							<option>Pack</option>
+						</select>
+					</td>
+				</tr>
+				
+			</table>
+			<table>
+				<tr>
+					<a href="1-1-prod-group-for-prom.html">
+					<button class="btn btn-primary btn-xs">Back</button>
+					</a>
+					&nbsp;
+					<button class="btn btn-primary btn-xs">Add </button>
+					&nbsp;
+					<button class="btn btn-primary btn-xs">Cancle </button>
+				</tr>
+			</table>
+		</div>
+		
+	</div>
+	<hr>
+	<h2>List of Item of Group</h2>
+	<div class="row">
+		<div class="col-md-8">
+			<table class="table">
+				<thead>
+					<tr >
+						<th>
+						Item Code
+						</th>
+						<th>
+						Item Name
+						</th>
+						<th>
+						Minimum  Order
+						</th>
+						<th>
+						Unit
+						</th>
+						
+						<th>
+						Manage
+						</th>
+					</tr>
+					<tr>
+						<td>
+						10101001
+						</td>
+						<td>
+						ทีโอเปลํกซ์ คลับแพ็ค 
+						</td>
+						<td>
+						0
+						</td>
+						<td>
+						Pack
+						</td>
+						
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						10101002
+						</td>
+						<td>
+						กระทิงแดง150 มล.
+						</td>
+						<td>
+						0
+						</td>
+						<td>
+						Pack
+						</td>
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						10101003
+						</td>
+						<td>
+						กระทิงแดง บาร์โค้ด
+						</td>
+						<td>
+						0
+						</td>
+						<td>
+						Pack
+						</td>
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						10101004
+						</td>
+						<td>
+						กระทิงแดงบาร์โค้ด
+						</td>
+						<td>
+						0
+						</td>
+						<td>
+						Pack
+						</td>
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+ 
+</div>
+    
+
+    <div class="blog-footer">
+       <p>Smart Van BackOffice</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+
+
+   
+  </body>
+</html>

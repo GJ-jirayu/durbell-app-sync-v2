@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Setup Discount Promotion By Group</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/blog.css">
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/doc.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="../bootstrap-3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="../bootstrap-3.1.1/js/jquery-2.1.1.min.js"></script>
+<script src="../bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../jquery-ui-multiselect/jquery.multiselect.css" />
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../jquery-ui-multiselect/src/jquery.multiselect.js"></script>
+
+
+
+<script>
+$(document).ready(function(){
+	$(".mutiSelect").multiselect();
+	$(".date").datepicker();
+});
+</script>
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <ul class="nav navbar-nav bg-primary">
+	        <li ><a href="1-1-prod-group-for-prom.html">Product Group for Promotion</a></li>
+	        <li class="dropdown">
+	          <a href="1-1-prod-group-for-prom.html"class="dropdown-toggle" data-toggle="dropdown">Discount Promotion <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="2-1-setup-discount-prom-by-item.html">Discount Promotion by Item</a></li>
+	            <li><a href="3-1-setup-discount-prom-by-group.html">Discount Promotion by Group</a></li>
+	            <li><a href="3-1-bundle-setup-discount-prom-by-group.html">Discount Promotion by Bundle</a></li>
+	          </ul>
+	        </li>
+	         <li class="dropdown active">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Free Item Promotion <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="4-1-setup-free-item-prom-by-item.html">Free Item Promotion by Item</a></li>
+	            <li><a href="5-1-setup-free-item-prom-by-group.html">Free Item Promotion by Group</a></li>
+	            <li><a href="5-1-bundle-setup-free-item-prom-by-group.html">Free Item Promotion by Bundle</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+<h2>Setup Free Item Promotion By Group</h2>
+<h3>Add Promotion</h3>
+	<div class="row">
+		<div class="col-md-8">
+			<table class="table table-bordered">
+				<tr>
+					<td>Promotion No</td>
+					<td>
+						
+						<input type="productName" />
+					</td>
+				</tr>
+				<tr>
+					<td>Promotion Desc</td>
+					<td>
+					<input type="productName" />
+					</td>
+						
+				</tr>
+				
+				<tr>
+					<td>Effective Date</td>
+					<td>
+						<input type="text" class="date">
+						&nbsp;
+						<input type="text" class="date">
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Priority
+					</td>
+					<td>
+						<select>
+							<option>0</option>
+							<option>1</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Note
+					</td>
+					<td>
+						<textarea id="note" rows="5" cols="50"></textarea>
+					</td>
+				</tr>	
+				<tr>
+					<td>
+					Branch
+					</td>
+					<td>
+						<select class="mutiSelect">
+							<option>All Branch</option>
+							<option>Branch0</option>
+							<option>Branch1</option>
+						</select>
+						
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Sales Team 
+					</td>
+					<td>
+						<select class="mutiSelect">
+							<option>All Sales Team</option>
+							<option>Sales Team0</option>
+							<option>Sales Team1</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					Shop Type
+					</td>
+					<td>
+						<select class="mutiSelect">
+							<option>All ShopType</option>
+							<option>Shop Type</option>
+							<option>Shop Type</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Alway</td>
+					<td><input type="checkbox"></td>
+				</tr>
+				
+			</table>
+			
+			
+			
+			
+			<table>
+				<tr>
+					<td>
+		
+					
+					<button type="button" class="btn btn-primary btn-xs">Add </button>
+					&nbsp;
+					<button type="button" class="btn btn-primary btn-xs">Cancel </button>
+				</td>
+				</tr>
+			</table>
+		</div>
+		
+	</div>
+	<hr>
+	<h3>List of Free Promotion by Group</h3>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr >
+						<th>
+						Promotion No
+						</th>
+						<th>
+						Promotion Decs
+						</th>
+						<th>
+						Start Date
+						</th>
+						<th>
+						End Date
+						</th>
+						<th>
+						Away
+						</th>
+						
+						
+						<th>
+						Manage
+						</th>
+					</tr>
+					<tr>
+						<td>
+						
+						FG0908 
+					
+						</td>
+						<td>
+						Puriku350 ml   
+						</td>
+						<td>
+						28/05/2553
+						</td>
+						<td>
+						28/05/2553
+						</td>
+						<td></td>
+						
+						
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						<button type="button" class="btn btn-primary btn-xs">Print </button>
+						<a href="5-2-setup-free-item-prom-by-group-detail.html" class="addItem">
+						<button type="button" class="btn btn-primary btn-xs">Add Item </button>
+						</a>
+						<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-copy-modal-lg">Copy </button>
+						
+						</td>
+					</tr>
+					<tr>
+						<td>
+						
+						FG520301
+						
+						</td>
+						<td>
+						Tea & Star Promo
+						</td>
+						<td>
+						28/05/2553
+						</td>
+						<td>
+						28/05/2553
+						</td>
+						<td></td>
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						<button type="button" class="btn btn-primary btn-xs">Print </button>
+
+						<a href="5-2-setup-free-item-prom-by-group-detail.html" class="addItem">
+						<button type="button" class="btn btn-primary btn-xs">Add Item </button>
+						</a>
+						<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-copy-modal-lg">Copy </button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						
+						FG520501
+						
+						</td>
+						<td>
+						Tea & Star Promo
+						</td>
+						<td>
+						28/05/2553
+						</td>
+						<td>
+						28/05/2553
+						</td>
+						<td></td>
+					
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						<button type="button" class="btn btn-primary btn-xs">Print </button>
+						<a href="5-2-setup-free-item-prom-by-group-detail.html" class="addItem">
+						<button type="button" class="btn btn-primary btn-xs">Add Item </button>
+						</a>
+						<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-copy-modal-lg">Copy </button>
+						
+						</td>
+					</tr>
+					<tr>
+						<td>
+						
+						FG5209
+						
+						</td>
+						<td>
+						Puriku 350 ml   
+						</td>
+						<td>
+						28/05/2553
+						</td>
+						<td>
+						28/05/2553
+						</td>
+						<td></td>
+						
+						<td>
+						<button type="button" class="btn btn-primary btn-xs">Edit </button>
+						<button type="button" class="btn btn-danger btn-xs">Delete </button>
+						<button type="button" class="btn btn-primary btn-xs">Print </button>
+						<a href="5-2-setup-free-item-prom-by-group-detail.html" class="addItem">
+						<button type="button" class="btn btn-primary btn-xs">Add Item </button>
+						</a>
+						<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-copy-modal-lg">Copy </button>
+						
+						</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+ 
+</div>
+  
+    <!-- Start  View Step Large modal -->
+
+
+<div class="modal fade bs-viewStep-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="myLargeModalLabel">View Step (G03001 ColaBottle)</h4>
+        </div>
+        <div class="bs-callout bs-callout-info">
+				    <h4>Break By</h4>
+				    <div class="row">
+				    	<div class="col-md-12">
+						    <table class="table">
+								<thead>
+									<tr>
+										
+										<th>Break Qty</th>
+										<th>Unit</th>
+										<th>Break Amt</th>
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										
+										<td>
+										6
+										</td>
+										<td>
+										Pack
+										</td>
+										<td>
+										
+										</td>
+									
+										
+									</tr>
+									<tr>
+										
+										<td>
+										12
+										</td>
+										<td>
+										Pack
+										</td>
+										<td>
+										
+										</td>
+									
+										
+									</tr>
+									<tr>
+										
+										<td>
+										
+										</td>
+										<td>
+										
+										</td>
+										<td>
+										500
+										</td>
+									
+										
+									</tr>
+									
+								</tbody>
+							</table>
+				    	</div>
+				    </div>
+				    
+			</div>
+			
+        <div class="modal-body">
+        	<h2>Free Item</h2>
+	        <div class="row">
+			<div class="col-md-12">
+					<table class="table">
+			          	<thead>
+				          	<tr>
+				          		
+				          		
+				          		<th>Free Item Code</th>
+				          		<th>Description</th>
+				          		<th>Free Qty</th>
+				          		<th>Unit</th>
+				          		<th>Gl Account</th>
+				          		
+				          		
+				          	</tr>
+			          	</thead>
+			          	<tbod>
+			          		<tr>
+			          			
+			          			<td>01010006</td>
+			          			<td>กระทิงแดง150มล.</td>
+			          			<td>1</td>
+			          			<td>Piece</td>
+			          			<td></td>
+			          			
+			          		</tr>
+			          		<tr>
+			          		
+			          			<td>01010007</td>
+			          			<td>กระทิงแดง150มล.(พ)</td>
+			          			<td>1</td>
+			          			<td>Piece</td>
+			          			<td></td>
+			          			
+			          		</tr>
+			          		<tr>
+			          			
+			          			<td>01010008</td>
+			          			<td>เรดดิ้โกจิ</td>
+			          			<td>1</td>
+			          			<td>Piece</td>
+			          			<td></td>
+			          			
+			          		</tr>
+			          	</tbod>
+			          </table>
+			</div>
+		</div>
+            <button type="button" class="btn btn-primary btn-xs">OK </button>
+		
+         
+        
+          
+        </div>
+    </div>
+   
+  </div>
+</div>
+
+<!-- End View Step Large modal -->
+   	
+<!-- Start Large modal -->
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="myLargeModalLabel">Free Item </h4>
+        </div>
+        <div class="bs-callout bs-callout-info">
+				    <h4>Detail Promotion</h4>
+				    <table class="table">
+				    	<thead>
+				    		<tr>
+				    			<th>Prom No</th>
+				    			<th>Prom Desc</th>
+				    			
+				    			<th>Break By</th>
+				    			<th>Discount For</th>
+				    			<th>LimitFreeQty</th>
+				    			<th>LimitDiscBaht</th>
+				    			
+				    			
+				    			
+				    		
+				    		</tr>
+				    	</thead>
+				    	<tbody>
+					    	<tr>
+					    		<td>DI520301</td>
+					    		<td>Tea & Star Promo</td>
+					    		
+					    
+					    		<td>Q</td>
+					    		<td>B</td>
+					    		
+					    	</tr>
+					    	
+				    	</tbody>
+				    	
+				    </table>
+				    
+			</div>
+			
+        <div class="modal-body">
+        	<h2>Add Free Item</h2>
+        <div class="row">
+        		  
+        	<div class="col-md-6">
+        		 
+		          <table class="table">
+		          	<tr>
+		          		<td>Brand </td>
+		          		<td>
+		          			<select>
+		          				<option>All Brand</option>
+		          				<option>Brand01</option>
+		          				<option>Brand02</option>
+		          			</select>
+		          		</td>
+		          	</tr>
+		          	<tr>
+		          		<td>Free Item Code</td>
+		          		<td>
+		          			<input type="text">
+		          		</td>
+		          	</tr>
+		          	<tr>
+		          		<td>Discription</td>
+		          		<td>
+		          			<textarea></textarea>
+		          		</td>
+		          	</tr>
+		          	<tr>
+		          		<td>Free Qty</td>
+		          		<td>
+		          			<input type="text">
+		          		</td>
+		          	</tr>
+		          	
+		          	<tr>
+		          		<td>Unit </td>
+		          		<td>
+		          			<select>
+		          				<option>Picece</option>
+		          				<option>Pack</option>
+		          			</select>
+		          		</td>
+		          	</tr>
+		          	
+		          	<tr>
+		          		<td>Free Unit Factor </td>
+		          		<td>
+		          			
+		          		</td>
+		          	</tr>
+		          	<tr>
+		          		<td>GL Account</td>
+		          		<td>
+		          			<input type="text">
+		          		</td>
+		          	</tr>
+		          </table>
+	          </div>
+          </div>
+            <button type="button" class="btn btn-primary btn-xs">Add </button>
+			<button type="button" class="btn btn-danger btn-xs">Cancle </button>
+          <hr>
+          <h2>Detail Free Item</h2>
+          <table class="table">
+          	<thead>
+	          	<tr>
+	          		
+	          		
+	          		<th>Free Item Code</th>
+	          		<th>Description</th>
+	          		<th>Free Qty</th>
+	          		<th>Unit</th>
+	          		<th>Gl Account</th>
+	          		<th>Manage</th>
+	          		
+	          	</tr>
+          	</thead>
+          	<tbod>
+          		<tr>
+          			
+          			<td>01010006</td>
+          			<td>กระทิงแดง150มล.</td>
+          			<td>1</td>
+          			<td>Piece</td>
+          			<td></td>
+          			<td>
+          					<button type="button" class="btn btn-primary btn-xs btn-xs">Edit </button>
+							<button type="button" class="btn btn-danger btn-xs btn-xs">Delete </button>
+          			</td>
+          		</tr>
+          		<tr>
+          		
+          			<td>01010007</td>
+          			<td>กระทิงแดง150มล.(พ)</td>
+          			<td>1</td>
+          			<td>Piece</td>
+          			<td></td>
+          			<td>
+          					<button type="button" class="btn btn-primary btn-xs ">Edit </button>
+							<button type="button" class="btn btn-danger btn-xs ">Delete </button>
+          			</td>
+          		</tr>
+          		<tr>
+          			
+          			<td>01010008</td>
+          			<td>เรดดิ้โกจิ</td>
+          			<td>1</td>
+          			<td>Piece</td>
+          			<td></td>
+          			<td>
+          					<button type="button" class="btn btn-primary btn-xs ">Edit </button>
+							<button type="button" class="btn btn-danger btn-xs ">Delete </button>
+          			</td>
+          		</tr>
+          	</tbod>
+          </table>
+          
+        </div>
+    </div>
+   
+  </div>
+</div>
+<!-- End Large modal -->
+ <!--Copy Start Large modal -->
+
+
+<div class="modal fade bs-copy-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="myLargeModalLabel">New Promotion</h4>
+        </div>
+        <div class="bs-callout bs-callout-info">
+				    <h4>Detail Promotion</h4>
+				    <div class="row">
+				    	<div class="col-md-5">
+						    <table class="table">
+						    	
+						    	<tbody>
+							    	<tr>
+							    		<td><input type="radio" name="radio1"></td>
+							    		<td>As Blank Promotion</td>
+							    	</tr>
+							    	<tr>
+							    		<td><input type="radio" name="radio1"></td>
+							    		<td>Copy Existing Promotion</td>
+							    		
+							    		
+							    	</tr>
+							    	<tr>
+							    		<td><input type="text" size="5"></td>
+							    		<td>Promotion No</td>
+							    		
+							    		
+							    	</tr>
+							    	
+						    	</tbody>
+						    	
+						    </table>
+				    	</div>
+				    </div>
+				    
+			</div>
+			
+        <div class="modal-body">
+        	<h2>Promotion</h2>
+	        <div class="row">
+			<div class="col-md-12">
+				<table class="table">
+					<tbody>
+						<tr >
+							<th>
+							Prom Group No
+							</th>
+							<th>
+							Prom Group Desc
+							</th>
+							<th>
+							Start Date
+							</th>
+							<th>
+							End Date
+							</th>
+							<th>
+							Away
+							</th>
+							
+						</tr>
+						<tr>
+							<td>
+							
+							FG0908 
+						
+							</td>
+							<td>
+							Puriku350 ml
+							</td>
+							<td>
+							28/05/2553
+							</td>
+							<td>
+							28/05/2553
+							</td>
+							<td></td>
+							
+							
+							
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+            <button type="button" class="btn btn-primary btn-xs">Add </button>
+			<button type="button" class="btn btn-danger btn-xs">Cancle </button>
+         
+        
+          
+        </div>
+    </div>
+   
+  </div>
+</div>
+
+<!--Copy End Large modal -->
+    
+
+   <div class="blog-footer">
+      <p>Smart Van BackOffice</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+
+
+   
+  </body>
+</html>

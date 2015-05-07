@@ -1,0 +1,306 @@
+<?php
+
+$checkError = ini_get('error_reporting');
+error_reporting($checkError ^ E_NOTICE);
+//get parameter start
+/*
+  ################       PromStep Start ###############
+  paramPromType
+  paramPromNo
+  paramPromCode
+  paramStep
+  paramMinimumSKU
+  paramBreakQty
+  paramBreakUnitCode
+  paramBreakUnitFactor
+  paramBreakAmt
+  paramDiscPer
+  paramDiscBaht
+  paramPromStepNote
+  paramPromStepType
+  ################       PromStep End ###############
+ */
+$paramAction = $_POST['paramAction'];
+$paramPromType = $_POST['paramPromType'];
+$paramPromStepType = $_POST['paramPromStepType'];
+$paramPromNo = $_POST['paramPromNo'];
+$paramPromCode = $_POST['paramPromCode'];
+$paramStep = $_POST['paramStep'];
+$paramMinimumSKU = $_POST['paramMinimumSKU'];
+$paramBreakQty = $_POST['paramBreakQty'];
+$paramBreakUnitCode = $_POST['paramBreakUnitCode'];
+$paramBreakUnitFactor = $_POST['paramBreakUnitFactor'];
+$paramBreakAmt = $_POST['paramBreakAmt'];
+$paramDiscPer = $_POST['paramDiscPer'];
+$paramDiscBaht = $_POST['paramDiscBaht'];
+$paramPromStepNote = $_POST['paramPromStepNote'];
+
+
+
+//get parameter end
+
+include_once("../config.php");
+$last_modified = date("Y-m-d H:i:s");
+//echo"$paramAction";
+//add data
+if ($paramAction == "add") {
+    $itemNo = count($paramPromCode);
+    $res = array();
+    for ($i = 0; $i < $itemNo; $i++) {
+        $sqlCheck = "SELECT * FROM PromStep where PromType ='$paramPromType' and  PromNo ='$paramPromNo' and PromCode = '$paramPromCode[$i]' "
+            . "and Step='$paramStep'"
+                . "";
+        if (checkAlreadyId($conn, $sqlCheck) == "Already-Id") {
+//            echo'["id-already"]';
+            array_push($res, $paramPromCode[$i]);
+        } else {
+            $sql = "INSERT INTO PromStep(PromType,PromNo,PromCode,Step,PromStepType,MinimumSKU,BreakQty,BreakUnitCode,BreakUnitFactor,BreakAmt,DiscPer,DiscBaht,PromStepNote,last_modified) 
+		VALUES('$paramPromType','$paramPromNo','$paramPromCode[$i]','$paramStep','$paramPromStepType','$paramMinimumSKU','$paramBreakQty','$paramBreakUnitCode','$paramBreakUnitFactor','$paramBreakAmt','$paramDiscPer','$paramDiscBaht','$paramPromStepNote','$last_modified')";
+
+            $sqlConv = iconv("utf-8", "tis-620", $sql);
+            $rs = odbc_exec($conn, $sqlConv);
+            /*if (!$rs) {
+                exit("Error in SQL");
+            } else {
+                echo'["save-success"]';
+            }*/            
+        }
+    }
+    echo json_encode($res);
+    odbc_close($conn);
+}
+
+
+
+//delete data
+//check use Promotion?
+if ($paramAction == "checkUseProm") {
+    $sqlCheck = "SELECT * FROM OrderDetailGetPromotion  where PromType ='$paramPromType'and  PromNo ='$paramPromNo' and Step='$paramStep' and PromCode='$paramPromCode'";
+    if (checkAlreadyId($conn, $sqlCheck) == "Already-Id") {
+        echo'["id-already"]';
+    } else {
+        echo'["id-empty"]';
+    }
+}
+if ($paramAction == "delete") {
+
+//    $childSql = "DELETE FROM PromBundleFreeItem WHERE PromType='$paramPromType' and PromNo='$paramPromNo' and Step='$paramStep'";
+//    $childRs = odbc_exec($conn, $childSql);
+//
+//    if (!$childRs) {
+//        exit("Error in SQL");
+//    } else {
+
+    $sql = "DELETE FROM PromStep WHERE PromType='$paramPromType' and PromNo='$paramPromNo' and PromCode='$paramPromCode' and Step='$paramStep'";
+    $rs = odbc_exec($conn, $sql);
+    if (!$rs) {
+        exit("Error in SQL");
+    } else {
+        echo'["success"]';
+    }
+//    }
+    odbc_close($conn);
+}
+
+
+
+//select data for edit
+if ($paramAction == "edit") {
+
+    /*
+      SELECT PromStep.*,Item.ItemDesc,pg.GroupDesc FROM PromStep
+      left join Item on PromStep.PromCode=Item.ItemCode
+      left join PromGroup pg on PromStep.PromCode=pg.GroupCode
+     */
+    $sql = "SELECT PromStep.*,Item.ItemDesc,pg.GroupDesc FROM PromStep
+left join Item on PromStep.PromCode=Item.ItemCode
+left join PromGroup pg on PromStep.PromCode=pg.GroupCode
+
+where PromStep.PromType='$paramPromType' 
+and PromStep.PromNo='$paramPromNo' 
+and PromStep.PromCode='$paramPromCode' 
+and PromStep.Step='$paramStep'";
+    //$sqlConv=iconv("utf-8", "tis-620", $sql);
+    $rs = odbc_exec($conn, $sql);
+    if (!$rs) {
+        exit("Error in SQL");
+    } else {
+        /*
+          ################       PromStep Start ###############
+          paramPromType
+          paramPromNo
+          paramPromCode
+
+          paramStep
+          paramMinimumSKU
+          paramBreakQty
+          paramBreakUnitCode
+          paramBreakUnitFactor
+          paramBreakAmt
+          paramDiscPer
+          paramDiscBaht
+          paramPromStepNote
+          ################       PromStep End ###############
+         */
+        while (odbc_fetch_row($rs)) {
+            $Step = iconv("tis-620", "utf-8", odbc_result($rs, "Step"));
+            $MinimumSKU = iconv("tis-620", "utf-8", odbc_result($rs, "MinimumSKU"));
+            $BreakQty = iconv("tis-620", "utf-8", odbc_result($rs, "BreakQty"));
+            $BreakUnitCode = iconv("tis-620", "utf-8", odbc_result($rs, "BreakUnitCode"));
+            $BreakUnitFactor = iconv("tis-620", "utf-8", odbc_result($rs, "BreakUnitFactor"));
+            $BreakAmt = iconv("tis-620", "utf-8", odbc_result($rs, "BreakAmt"));
+            $DiscPer = iconv("tis-620", "utf-8", odbc_result($rs, "DiscPer"));
+            $DiscBaht = iconv("tis-620", "utf-8", odbc_result($rs, "DiscBaht"));
+            $PromStepNote = iconv("tis-620", "utf-8", odbc_result($rs, "PromStepNote"));
+            $PromCode = iconv("tis-620", "utf-8", odbc_result($rs, "PromCode"));
+            $PromStepType = iconv("tis-620", "utf-8", odbc_result($rs, "PromStepType"));
+
+            if ($PromStepType == "BDI") {
+                $Description = iconv("tis-620", "utf-8", odbc_result($rs, "ItemDesc"));
+            } else {
+                $Description = iconv("tis-620", "utf-8", odbc_result($rs, "GroupDesc"));
+            }
+        }
+        echo"[\"$Step\",\"$MinimumSKU\",\"$BreakQty\",\"$BreakUnitCode\",\"$BreakUnitFactor\",\"$BreakAmt\",\"$DiscPer\",\"$DiscBaht\",\"$PromStepNote\",\"$PromCode\",\"$Description\",\"$PromStepType\"]";
+    }
+}
+
+
+
+//update data 
+if ($paramAction == "editAction") {
+    /*
+      ################       PromStep Start ###############
+      paramPromType
+      paramPromNo
+      paramPromCode
+
+      paramStep
+      paramMinimumSKU
+      paramBreakQty
+      paramBreakUnitCode
+      paramBreakUnitFactor
+      paramBreakAmt
+      paramDiscPer
+      paramDiscBaht
+      paramPromStepNote
+      ################       PromStep End ###############
+     */
+    $sql = "UPDATE PromStep SET MinimumSKU='$paramMinimumSKU',BreakQty='$paramBreakQty',BreakUnitCode='$paramBreakUnitCode',
+		BreakUnitFactor='$paramBreakUnitFactor',BreakAmt='$paramBreakAmt',DiscPer='$paramDiscPer',DiscBaht='$paramDiscBaht',
+		PromStepNote='$paramPromStepNote',last_modified='$last_modified'
+		WHERE PromType='$paramPromType' and PromNo='$paramPromNo' and PromCode='".implode("','",$paramPromCode)."' and Step='$paramStep'";
+
+    $sqlConv = iconv("utf-8", "tis-620", $sql);
+    $rs = odbc_exec($conn, $sqlConv);
+    if (!$rs) {
+        exit("Error in SQL");
+    } else {
+        echo'["update-success"]';
+    }
+    odbc_close($conn);
+}
+
+
+
+//show data
+if ($paramAction == "showData") {
+
+    /*
+      paramPromType
+      paramPromNo
+      paramPromCode
+     */
+
+    $sql = "SELECT PromStep.*,Item.ItemDesc,pg.GroupDesc FROM PromStep
+left join Item on PromStep.PromCode=Item.ItemCode
+left join PromGroup pg on PromStep.PromCode=pg.GroupCode
+where PromType='$paramPromType' and PromNo='$paramPromNo'  order by PromNo, Step, PromCode";
+
+    $htmlShowData = "";
+    $rs = odbc_exec($conn, $sql);
+    if (!$rs) {
+        exit("Error in SQL");
+    }
+    /*
+      Promotion No 	Item Code 	Description 	Step 	Break Qty 	Break Amt 	Disc Per 	Disc Bath 	Manage
+     */
+    $htmlShowData.= "<table id='grid1' class='table table-striped'>";
+    $htmlShowData.= "<colgroup>";
+    $htmlShowData.= "<col />";
+    $htmlShowData.= "<col />";
+    $htmlShowData.= "<col />";
+    $htmlShowData.= "<col />";
+    $htmlShowData.= "<col />";
+    $htmlShowData.= "<col />";
+    $htmlShowData.= "<col />";
+    $htmlShowData.= "</colgroup>";
+
+    $htmlShowData.= "<thead>";
+    $htmlShowData.= "<tr>";
+    $htmlShowData.= "<th data-field=\"field1\"><b>Promotion No </b></th>";
+    $htmlShowData.= "<th data-field=\"field2\"><b>Step  </b></th>";
+    $htmlShowData.= "<th data-field=\"field3\"><b>Prom Code </b></th>";
+    $htmlShowData.= "<th data-field=\"field4\"><b>Description </b></th>";
+    $htmlShowData.= "<th data-field=\"field5\"><b>Break Qty   </b></th>";
+    $htmlShowData.= "<th data-field=\"field6\"><b>Break Amt </b></th>";
+    $htmlShowData.= "<th data-field=\"field7\"><b>Manage  </b></th>";
+    $htmlShowData.="</tr >";
+    $htmlShowData.= "</thead>";
+
+    $htmlShowData.= "<tbody>";
+    $i = 1;
+    while (odbc_fetch_row($rs)) {
+        $PromNo = iconv("tis-620", "utf-8", odbc_result($rs, "PromNo"));
+        $PromCode = iconv("tis-620", "utf-8", odbc_result($rs, "PromCode"));
+        $PromStepType = iconv("tis-620", "utf-8", odbc_result($rs, "PromStepType"));
+        if ($PromStepType == "BDI") {
+            $Description = iconv("tis-620", "utf-8", odbc_result($rs, "ItemDesc"));
+        } else {
+            $Description = iconv("tis-620", "utf-8", odbc_result($rs, "GroupDesc"));
+        }
+
+        //$MinimumSKU=odbc_result($rs,"MinimumSKU");
+        $Step = iconv("tis-620", "utf-8", odbc_result($rs, "Step"));
+        $BreakQty = number_format(iconv("tis-620", "utf-8", odbc_result($rs, "BreakQty")));
+        $BreakAmt = number_format(iconv("tis-620", "utf-8", odbc_result($rs, "BreakAmt")), '2', '.', ',');
+        $BreakUnitCode = iconv("tis-620", "utf-8", odbc_result($rs, "BreakUnitCode"));
+        $BreakUnitFactor = iconv("tis-620", "utf-8", odbc_result($rs, "BreakUnitFactor"));
+        $DiscPer = iconv("tis-620", "utf-8", odbc_result($rs, "DiscPer"));
+        $DiscBaht = iconv("tis-620", "utf-8", odbc_result($rs, "DiscBaht"));
+
+        $htmlShowData.= "<tr>";
+        $htmlShowData.= "<td>$PromNo</td>";
+        $htmlShowData.= "<td>$Step</td>";
+        $htmlShowData.= "<td>$PromCode</td>";
+        $htmlShowData.= "<td>$Description</td>";
+        $htmlShowData.= "<td>$BreakQty</td>";
+        $htmlShowData.= "<td>$BreakAmt</td>";
+        $htmlShowData.="
+			<td>
+                            <button type=\"button\" class=\"btn btn-primary btn-xs btnEdit record$i\" id=\"idEdit-$Step\">Edit </button>
+                            <button type=\"button\" class=\"btn btn-danger btn-xs btnDel\"  id=\"idDel-$Step\">Delete </button>
+			</td>";
+        $htmlShowData.="</tr>";
+        $i++;
+    }
+    odbc_close($conn);
+    $htmlShowData.= "</tbody>";
+    $htmlShowData.= "</table>";
+
+    echo $htmlShowData;
+}
+
+if ($paramAction == "countPromStep") {
+    $sqlCountRows = "SELECT max(Step) as countRows
+	FROM PromStep
+	WHERE PromType='$paramPromType'
+	And PromNo='$paramPromNo'";
+
+    $rsCoountRows = odbc_exec($conn, $sqlCountRows);
+    odbc_fetch_row($rsCoountRows);
+    $countRows = odbc_result($rsCoountRows, "countRows");
+    $countRows;
+    echo'["' . $countRows . '"]';
+}
+?>
